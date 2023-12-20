@@ -12,26 +12,28 @@ window.title("BMI Calculator")
 window.config(padx=20,pady=20)
 
 def calculate():
-    weight = float(my_entry.get())
-    height = float(my_entry_2.get()) / 100
+    try:
+        weight = float(my_entry.get())
+        height = float(my_entry_2.get()) / 100
 
-    if weight > 0 and height > 0:
-        bmi = weight / height ** 2
-        if bmi < 18.5:
-            my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Underweight")
-        elif 18.5 <= bmi < 25:
-            my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Normal")
-        elif 25 <= bmi < 30:
-            my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Overweight")
-        elif 30 <= bmi < 35:
-            my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Obese")
-        elif 35 <= bmi < 40:
-            my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Severely Obese")
-        elif bmi >= 40:
-            my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Morbidly Obese")
-    else:
+        if weight > 0 and height > 0:
+            bmi = weight / height ** 2
+            if bmi < 18.5:
+                my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Underweight")
+            elif 18.5 <= bmi < 25:
+                my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Normal")
+            elif 25 <= bmi < 30:
+                my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Overweight")
+            elif 30 <= bmi < 35:
+                my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Obese")
+            elif 35 <= bmi < 40:
+                my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Severely Obese")
+            elif bmi >= 40:
+                my_label_3.config(text=f"Your BMI is {bmi:.2f}. You are Morbidly Obese")
+        else:
+            my_label_3.config(text="Please Enter a Valid Number")
+    except ValueError:
         my_label_3.config(text="Please Enter a Valid Number")
-
 
 #Label
 my_label = Label(text="Enter Your Weight (kg)",)
